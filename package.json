@@ -31,7 +31,7 @@
         "admin:update-labels": "node ./admin/scripts/github-labels.js",
         "build": "npm run build:dev",
         "build:dev": "npm run start:web",
-        "build:prod": "rm -rf ./dist/web && parcel build ./src/pages/**/**/*.html --dist-dir ./dist/web --cache-dir ./.cache/parcel-prod",
+        "build:prod": "rm -rf ./dist/web && parcel build ./src/pages/**/**/*.html --dist-dir ./dist/web --cache-dir ./.cache/parcel-prod && cp -r ./admin/web/. ./dist/web",
         "docs": "npm run docs:jsdoc",
         "docs:changelog": "node ./admin/scripts/changelog.js",
         "docs:jsdoc": "jsdoc --configure ./admin/config/jsdoc.config.json",
