@@ -1,9 +1,10 @@
 {
     "name": "blameitonyourisp.github.io",
     "version": "0.0.1",
-    "description": "GitHub Pages",
+    "description": "Github pages site for blameitonyourisp org.",
     "keywords": [
-        "ghpages"
+        "gh-pages",
+        "website"
     ],
     "homepage": "https://github.com/blameitonyourisp/blameitonyourisp.github.io#readme",
     "repository": {
