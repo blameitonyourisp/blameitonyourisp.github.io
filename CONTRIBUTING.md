@@ -388,23 +388,9 @@ The `./dist` directory is reserved for custom, author generated, documentation f
 
 ### src
 
-The `./src` directory contains all source files which form part of the exported software of this repository. This includes scripts for any CLI tools provided by this repository, any scripts forming the exported package of this repository, and any scripts or markup files for the static demo site of this repository. Please see the following subheadings to see how the directory is structured.
+The `./src` directory contains markup and source files for the static demo site of this repository. Its default subdirectories are included in this repository by use of `.gitkeep` files. The `./src` directory is structured like a standard vanilla static site, with a `./src/pages` subdirectory for all `.html` page files, a `./src/scripts` subdirectory for all `.js` script files, and a `./src/styles` subdirectory for all `.css` stylesheet files. The standard entrypoint for the static demo site of this repository is `./src/pages/index.html`. The [parcel bundler](https://parceljs.org/) will create its bundled output from this file. 
 
-#### src/bin
-
-The `./src/bin` subdirectory contains source files for any CLIs which are provided by this repository, and is included by default in this repository by use of a `.gitkeep` file. The standard entrypoint for any CLI provided by this repository is `./src/bin/index.js`, although rollup may build multiple executable scripts from other entrypoints if required (for instance if multiple CLI tools are provided by the repository). For each executable script which rollup produces, the `package.json` file [bin object](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#bin) *must* be updated with an entry to point to the new script.
-
-#### src/package
-
-The `./src/package` subdirectory contains source files for the package which this repository exports, and is included by default in this repository by use of a `.gitkeep` file. The standard entrypoint for any package provided by this repository is `./src/package/index.js`, although rollup may build multiple bundles from other entrypoints if required (for instance if the exported package is split into many subpath exports to allow only parts of the package to be imported later). Each entrypoint must export only those members which should be made available for import within another package, and must *not* blindly export all members etc. from all source files. For each bundled script which rollup produces, the `package.json` file [subpath exports object](https://nodejs.org/api/packages.html#subpath-exports) *must* be updated with an entry to point to the new bundled script.
-
-#### src/web
-
-The `./src/web` subdirectory contains markup and source files for the static demo site of this repository. Its default subdirectories are included in this repository by use of `.gitkeep` files. The `./src/web` subdirectory is structured like a standard vanilla static site, with a `./src/web/pages` subdirectory for all `.html` page files, a `./src/web/scripts` subdirectory for all `.js` script files, and a `./src/web/styles` subdirectory for all `.css` stylesheet files. The standard entrypoint for the static demo site of this repository is `./src/web/pages/index.html`. The [parcel bundler](https://parceljs.org/) will create its bundled output from this file. 
-
-When deployed, this page will be found at a URL such as `<subdomain>.blameitonyourisp.com` (`gh-pages` looks for `index.html` file by default). Other pages can be added to the static site by adding them to the `./src/web/pages` subdirectory, and linking them from the `index.html` page. For instance the file `./src/web/pages/about.html` would be found at a URL such as `<subdomain>.blameitonyourisp.com/about.html`, or the file `./src/web/pages/docs/index.html` would be found at a URL such as `<subdomain>.blameitonyourisp.com/docs`.
-
-Most commonly this directory will be used to demonstrate functionality of the package exported by this repository, by importing and using the production build of the package from the `./dist` directory. Where appropriate, the static site may also include some author generated documentation pages.
+When deployed, this page will be found at a URL such as `<subdomain>.blameitonyourisp.com` (`gh-pages` looks for `index.html` file by default). Other pages can be added to the static site by adding them to the `./src/pages` subdirectory, and linking them from the `index.html` page. For instance the file `./src/pages/about.html` would be found at a URL such as `<subdomain>.blameitonyourisp.com/about.html`, or the file `./src/pages/docs/index.html` would be found at a URL such as `<subdomain>.blameitonyourisp.com/docs`.
 
 ## Package
 
